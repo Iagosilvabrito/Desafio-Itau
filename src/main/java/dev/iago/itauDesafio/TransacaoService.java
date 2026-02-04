@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TransacaoService {
@@ -22,5 +24,19 @@ public class TransacaoService {
         }
 
 
+
     }
+    List<TransacaoRequest> listarTransacao = new ArrayList<>();
+
+    public void salvarDados(TransacaoRequest transacaoRequest){
+        listarTransacao.add(transacaoRequest);
+    }
+    public void deletarDados(TransacaoRequest transacaoRequest){
+
+    }
+    public void liparDados(){
+        listarTransacao.clear();
+    }
+
+
 }

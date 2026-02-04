@@ -16,9 +16,18 @@ public class TransacoesController {
     private TransacaoService transacaoService;
 
     @PostMapping
-    public ResponseEntity adcionar(@RequestBody TransacaoRequest trasacaoRequest){
+    public ResponseEntity adicionar(@RequestBody TransacaoRequest trasacaoRequest){
+        try{
+            transacaoService.validarTransacao(trasacaoRequest);
+            transacaoService.salvarDados(trasacaoRequest);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }catch (IllegalArgumentException exception){
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).build();
+        }
+        catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
 
-        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }
