@@ -3,7 +3,6 @@ package dev.iago.itauDesafio.Transacoes;
 import dev.iago.itauDesafio.Estatistica.EstatisticaDTO;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +17,7 @@ public class TransacoesRepository {
     public void deletarDados(){
         listarTransacao.clear();
     }
-    public void liparDados(){
 
-    }
     public EstatisticaDTO estatistica(OffsetDateTime horaIncial){
 
         if (listarTransacao.isEmpty()){
